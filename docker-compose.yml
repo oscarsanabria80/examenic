@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+  crud:
+    container_name: crudphp
+    image: oscarsanabria80/php:v4
+    restart: always
+    environment:
+      DB_USER: oscar
+      DB_PASSWORD: oscar
+      DB_HOST: bd_mariadb_php
+      DB_NAME: crud
+      BASE_URL: http://localhost:8085/
+    ports:
+      - 8085:80
+    depends_on:
+      - db_crud
+  db_crud:
+    container_name: bd_mariadb_php
+    image: mariadb
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: root
+      MARIADB_DATABASE: crud
+      MARIADB_USER: oscar
+      MARIADB_PASSWORD: oscar
+    volumes:
+      - mariadbcrud_data:/var/lib/mysql
+volumes:
+    mariadbcrud_data:
