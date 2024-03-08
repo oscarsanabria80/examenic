@@ -22,7 +22,7 @@ pipeline {
                     steps {
                         script {
                             withDockerRegistry([credentialsId: 'DOCKER_HUB', url: '']) {
-                            def dockerImage = docker.build("oscarsanabria80/php:v7")
+                            def dockerImage = docker.build("oscarsanabria80/php:v10")
                             dockerImage.push()
                             }
                         }
@@ -31,7 +31,7 @@ pipeline {
                 stage('Remove image') {
                     steps {
                         script {
-                            sh "docker rmi oscarsanabria80/php:v7"
+                            sh "docker rmi oscarsanabria80/php:v10"
                         }
                     }
                 }
