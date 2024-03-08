@@ -2,7 +2,7 @@ version: '3.8'
 services:
   crud:
     container_name: crudphp
-    image: oscarsanabria80/php:v4
+    image: oscarsanabria80/php:v7
     restart: always
     environment:
       DB_USER: oscar
