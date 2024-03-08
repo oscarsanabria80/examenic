@@ -13,11 +13,6 @@ pipeline {
                         git branch:'main',url:'https://github.com/oscarsanabria80/examenic.git'
                     }
                 }
-                stage('Install') {
-                    steps {
-                        sh 'pip install -r requirements.txt'
-                    }
-                }
             }
         }
         stage('Upload img') {
